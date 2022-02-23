@@ -10,6 +10,22 @@ def sort_numbers(input_data):
             d += 1
         return d * d > n
 
+    def extract_real(n):
+        is_number = False
+        number = ""
+        if n[0] == "s":
+            for elem in n:
+                if elem == ")":
+                    is_number = False
+                if is_number:
+                    number += elem
+                if elem == "(":
+                    is_number = True
+
+            number = int(number)
+
+            return number
+        return n
 
     natural = []
     integer = []
@@ -25,12 +41,17 @@ def sort_numbers(input_data):
             compl.append(elem)
             continue
         else:
+            if "s" in elem:
+                elem = extract_real(elem)
+                if str(sqrt(elem))[-1] != "0":
+                    real.append("sqrt(" + str(elem) + ")")
+                    continue
+                else:
+                    elem = str(sqrt(elem))[:-2]
             if "." in elem:
                 elem = float(elem)
             else:
                 elem = int(elem)
-
-            real.append(elem)
 
             if elem % 2 == 0:
                 even.append(elem)
@@ -47,7 +68,14 @@ def sort_numbers(input_data):
             elif elem > 0:
                 natural.append(elem)
 
-    print(natural,integer,rational,real,compl,even,not_even,simple)
+    print("Натуральные: ", *natural, "\n",
+          "Целые: ", *integer, "\n",
+          "Рациональные: ", *rational, "\n",
+          "Иррациональные: ", *real, "\n",
+          "Комплексные: ", *compl, "\n",
+          "Чётные: ", *even, "\n",
+          "Нечётные: ", *not_even, "\n",
+          "Простые: ", *simple, "\n")
 
 
 sort_numbers(input_data)

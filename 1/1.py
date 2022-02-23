@@ -24,6 +24,7 @@ def search():
     greece = "Greece"
     itl = "Italian"
     ukr = "Ukranian"
+    rus = "Russian"
     jpn = "Japanese"
     chn = "Chinese"
     arab = "Arabian"
@@ -48,6 +49,8 @@ def search():
                    Country("Italy", eur, itl, pr_m),
                    Country("Spain", eur, itl, pope),
                    Country("Ukraine", eur, ukr, pr),
+                   Country("Russia", eur, rus, pr),
+                   Country("France", eur, fr, pr),
                    Country("China", asia, chn, gen_sec),
                    Country("Japan", asia, jpn, pr_m),
                    Country("Egypt", afr, arab, pr),

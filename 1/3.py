@@ -102,7 +102,7 @@ def heapsort(alist):
 
     return alist
 
-
-numbers = heapsort(numbers)
-
-print(numbers)
+print(bubble_sort(numbers),
+      dwarf_sort(numbers),
+      block_sort(numbers),
+      heapsort(numbers))
