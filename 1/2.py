@@ -49,7 +49,11 @@ def sort_numbers(input_data):
                 else:
                     elem = str(sqrt(elem))[:-2]
             if "." in elem:
-                elem = float(elem)
+                if elem[elem.index(".") + 1] != "0":
+                    rational.append(elem)
+                    continue
+                else:
+                    elem = int(float(elem))
             else:
                 elem = int(elem)
 
