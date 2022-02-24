@@ -17,7 +17,7 @@ def sort_numbers(input_data):
             for elem in n:
                 if elem == ")":
                     is_number = False
-                if is_number:
+                if is_number: 
                     number += elem
                 if elem == "(":
                     is_number = True
@@ -54,9 +54,10 @@ def sort_numbers(input_data):
                     continue
                 else:
                     elem = int(float(elem))
+                    integer.append(elem)
             else:
                 elem = int(elem)
-
+                integer.append(elem)
             if elem % 2 == 0:
                 even.append(elem)
             else:
@@ -65,11 +66,7 @@ def sort_numbers(input_data):
             if is_prime(elem):
                 simple.append(elem)
 
-            if type(elem) == float:
-                rational.append(elem)
-            elif elem <= 0:
-                integer.append(elem)
-            elif elem > 0:
+            if elem > 0:
                 natural.append(elem)
 
     print("Натуральные: ", *natural, "\n",
